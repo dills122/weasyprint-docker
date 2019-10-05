@@ -1,6 +1,6 @@
 {
   "name": "weasyprint-docker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a standalone weasyprint container with a simple api to communicate",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "Dylan Steele",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "4.17.1",
     "weasyprint-wrapper": "0.1.2"
   }

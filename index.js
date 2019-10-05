@@ -1,14 +1,22 @@
-var express = require("express");
-var app = express();
+const express = require('express');
+const app = express();
+const port = parseInt(process.env.PORT, 10) || 8080;
+const bodyParser = require('body-parser')
 const weasyPrint = require("weasyprint-wrapper");
 
-app.listen(8080, () => {
-    console.log("Server running on port 3000");
-});
+app.use(bodyParser.json({
+    limit: '2mb'
+}));
+
+app.listen(port);
 
 app.get('/convert/stream', (req, res, next) => {
-    let inputStr = req.body.inputStr;
-    // let inputStr = "http://www.google.com";
+    let inputStr = req.body.inputStr || false;
+    if (!inputStr) {
+        return res.sendStatus(400).json({
+            error: "Missing inputStr"
+        });
+    }
     let stream = weasyPrint(inputStr, {
         pageSize: 'letter'
     });
@@ -18,8 +26,12 @@ app.get('/convert/stream', (req, res, next) => {
 });
 
 app.get('/convert/base64', (req, res, next) => {
-    let inputStr = req.body.inputStr;
-    // let inputStr = "http://www.google.com";
+    let inputStr = req.body.inputStr || false;
+    if (!inputStr) {
+        return res.sendStatus(400).json({
+            error: "Missing inputStr"
+        });
+    }
     let stream = weasyPrint(inputStr, {
         pageSize: 'letter'
     });
