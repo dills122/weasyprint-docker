@@ -1,9 +1,9 @@
-FROM node:10
+FROM mhart/alpine-node:12
 MAINTAINER Dylan Steele "dylansteele57@gmail.com"
 
-COPY ./setup.sh ./
-RUN chmod +x ./setup.sh
-RUN ./setup.sh
+RUN apk add --update bash && rm -rf /var/cache/apk/*
+RUN apk --update --upgrade add bash cairo pango gdk-pixbuf py3-cffi py3-pillow py-lxml
+RUN pip3 install weasyprint
 COPY . ./src
 RUN cd /src; npm install
 
