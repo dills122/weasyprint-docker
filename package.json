@@ -1,0 +1,15 @@
+{
+  "name": "weasyprint-docker",
+  "version": "0.1.0",
+  "description": "a standalone weasyprint container with a simple api to communicate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dylan Steele",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "weasyprint-wrapper": "0.1.2"
+  }
+}
