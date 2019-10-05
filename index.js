@@ -1,14 +1,29 @@
 var express = require("express");
 var app = express();
 const weasyPrint = require("weasyprint-wrapper");
-app.listen(3000, () => {
+
+app.listen(8080, () => {
     console.log("Server running on port 3000");
 });
 
-app.get('/home', (req, res, next) => {
-    let stream = weasyPrint('http://google.com/', {
+app.get('/convert/stream', (req, res, next) => {
+    let inputStr = req.body.inputStr;
+    // let inputStr = "http://www.google.com";
+    let stream = weasyPrint(inputStr, {
         pageSize: 'letter'
     });
+    res.setHeader("content-type", "application/pdf");
+    res.attachment('pdfname.pdf');
+    stream.pipe(res);
+});
+
+app.get('/convert/base64', (req, res, next) => {
+    let inputStr = req.body.inputStr;
+    // let inputStr = "http://www.google.com";
+    let stream = weasyPrint(inputStr, {
+        pageSize: 'letter'
+    });
+    // Base64
     let bufferData = [];
     // do whatever with the stream
     stream.on('data', (chunk) => {
