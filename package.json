@@ -4,7 +4,8 @@
   "description": "a standalone weasyprint container with a simple api to communicate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Dylan Steele",
   "license": "MIT",
