@@ -1,5 +1,7 @@
 # WeasyPrint Docker Service
 
+[![CodeFactor](https://www.codefactor.io/repository/github/dills122/weasyprint-docker/badge)](https://www.codefactor.io/repository/github/dills122/weasyprint-docker)
+
 A small stand alone WeasyPrint service
 
 ## Endpoints
