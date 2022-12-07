@@ -10,8 +10,8 @@
   "author": "Dylan Steele",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "4.17.1",
+    "body-parser": "^1.20.1",
+    "express": "4.18.2",
     "weasyprint-wrapper": "0.1.2"
   }
 }
